@@ -1,0 +1,20 @@
+name: XPBoost
+author: milkwalk
+version: 3.5.0
+main: cz.dubcat.xpboost.XPBoostMain
+api-version: 1.13
+commands:
+    xpboost:
+        description: Main command.
+        aliases: [xpb]
+        permission: xpboost.use
+        permission-message: '§cYou do not have permission to use this command'
+permissions:
+    xpboost.use:
+        description: Allows you to use the plugin
+        default: op
+    xpboost.admin:
+        description: Allows you to use the admin commands
+        default: op
+depend: [Vault]
+softdepend: [Vault,SkillAPI,BossBarAPI,Heroes,PlaceholderAPI,MVdWPlaceholderAPI]

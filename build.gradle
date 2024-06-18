@@ -1,0 +1,96 @@
+plugins {
+    id "java"
+    id "com.github.johnrengelman.shadow" version "8.1.1"
+    id "maven-publish"
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven {
+        url = uri('https://papermc.io/repo/repository/maven-public/')
+    }
+
+    maven {
+        url = uri('http://repo.mvdw-software.be/content/groups/public/')
+        allowInsecureProtocol = true
+    }
+
+    maven {
+        url = uri('https://repo.inventivetalent.org/content/repositories/releases/')
+    }
+
+    maven {
+        url = uri('https://nexus.neetgames.com/repository/maven-releases/')
+    }
+
+    maven {
+        url = uri('http://nexus.hc.to/content/repositories/pub_releases/')
+        allowInsecureProtocol = true
+    }
+
+    maven {
+        url = uri('https://jitpack.io')
+    }
+
+    maven {
+        url = uri('https://repo.maven.apache.org/maven2/')
+    }
+
+    maven {
+        url = uri('https://repo.papermc.io/repository/maven-public/')
+    }
+
+    maven {
+        url = uri('https://minevolt.net/repo/')
+    }
+}
+
+dependencies {
+    implementation libs.com.zaxxer.hikaricp
+    compileOnly libs.commons.io.commons.io
+    compileOnly libs.io.papermc.paper.paper.api
+    compileOnly (libs.com.github.milkbowl.vaultapi) {
+        exclude group: 'org.bukkit', module: 'bukkit'
+    }
+    compileOnly libs.org.projectlombok.lombok
+    annotationProcessor libs.org.projectlombok.lombok
+    compileOnly libs.com.gmail.nossr50.mcmmo.mcmmo
+    compileOnly (libs.com.github.zrips.jobs) {
+        exclude group: 'com.sk89q.worldguard', module: 'worldguard-bukkit'
+        exclude group: 'com.sk89q', module: 'worldguard'
+        exclude group: 'com.sk89q.worldedit', module: 'worldedit-bukkit'
+    }
+    compileOnly fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+group = 'cz.dubcat'
+version = '3.5.0'
+description = 'XPBoost'
+
+shadowJar {
+    delete fileTree("./target/") {
+        exclude archiveFileName.get()
+    }
+    dependsOn(jar)
+}
+
+build {
+    dependsOn shadowJar
+    dependsOn publish
+}
+
+publish.shouldRunAfter shadowJar
+build
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from(components.java)
+        }
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}

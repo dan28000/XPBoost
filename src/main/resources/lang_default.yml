@@ -1,0 +1,65 @@
+lang:
+  prefix: '&f[&aXPBoost&f] '
+  #The message that player gets when he gets XP and boost is active
+  doublexpnot: '&fYou got &a%newexp% XP &finstead of &a%oldexp% XP'
+  #The action bar message when boost is activated, %timeleft% placeholder can be used here
+  actionbar: '&a%boost%x XP boost is active'
+  #Boss bar message, BossBarAPI needed for that
+  bossbar: '&a%boost%x XP boost is active'
+  #If motdon is set to true and global boost is active, motd is gonna change to this Some place holders you can use: (%max% = number of slots, %players% = number of online players)
+  motd: "&c%boost%x &aXP Multiplier is enabled! Join NOW! \n &f&lThis is second line! &c%players%/%max%"
+  #MSG when boost finishes
+  boostfisnish: '&cYour boost has expired.'
+  #/xpboost info command output
+  boostcountdown: '&fSeconds remaining: &6'
+  #MSG on /xpboost info when boost is not active
+  boostinfodeny: '&fYou dont have any active boosts.'
+  #Message when player buys XP boost
+  xpbuy: '&c%boost%x &fXP boost &fis on for &a%time% seconds &c(%money%$)'
+  #The name of the Inventory when player opens GUI
+  gui: '&cXP Boost Shop'
+  #Name of the EXP Bottle in GUI
+  xptitle: '&a%boost%x XP Boost'
+  #Lore of the EXP Bottle in GUI, to start a new line put '%newline%'
+  xplore: '&c%boost%x XP Boost for %time% seconds%newline%&aPrice: &f&l%money%$'
+  #Message on failed buy
+  buyfail: '&cYou dont have enough money to purchase this boost! &a(%money%$)'
+  #Message on buy when boost is still active
+  boostactive: '&cYour boost is still active!'
+  #Notification message on join when global boost is enabled
+  joinnotmsg: '&f&lGlobal XP Boost of %boost%x is currently &f&aenabled &f&lfor everyone!'
+  #Blocked command message when boost is active
+  cmdblock: '&cYou are not allowed to execute &a%cmd% &ccommand while boost is active :('
+  #name of the given item you can use %boost% or %time% placeholders
+  itemname: '&a%boost%x XPBoost'
+  #name of faction XPBoost GUI menu
+  factions_gui_name: '&cFaction XPBoost Shop'
+  factions_nofaction: '&cYou are not member of any faction.'
+  factions_active_boost: 'Your faction already has an active boost!'
+  factions_only_owners: 'This boost can purchase only owner of the faction!'
+  factions_expire: '&cBoost for you faction has expired!'
+  factions_buy: '&c%player% &fhas bought a boost of &c%boost%x &ffor whole faction for &c%time% seconds!'
+  factions_one_boost: 'You cannot purchase any boosts while faction boost is active.'
+  command_not_found: '&cThis command doesnt exist.'
+  info_command:
+    boost: 'Boost: &6%boost%'
+    boost_type: 'Boost type:'
+  #Three lores on a given item, you can have up to 5 lines
+  item:
+    lore1: '&fBoost: &a%boost%x'
+    lore2: '&fDuration: &a%time% Seconds'
+    lore3: '&8Right-Click to gain boost.'
+  reload: '&fConfig has been reloaded'
+  pluginmenu:
+  - /xpboost gui &f- Opens up GUI
+  - /xpboost info &f- Shows time remaining
+  - /xpboost factions &f- Opens up a factions GUI
+  - /xpboost on/off &f - Enables/disables global XP Boost
+  - /xpboost give <name/all> <boost> <time> [VANILLA,SKILLAPI,MCMMO,RPGME,HEROES]&f - Gives player boost
+  - /xpboost giveDefinedBoost <player/all> <boostId> [durationInSeconds]&f - Gives a predefined boost
+  - /xpboost giveIfWorseBoost <name/all> <boost> <time> [VANILLA,SKILLAPI,MCMMO,RPGME,HEROES]&f - Gives player better boost only
+  - /xpboost clear <name> &f - Clears active boost
+  - /xpboost item <player> <boost> <time>&f - Gives an XPboost item to a player
+  - /xpboost global <boost> [time in seconds]- Changes global boost multiplier
+  - /xpboost reload &f - Reloads config
+  - What ever is inside [] is &coptional
